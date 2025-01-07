@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar{
+    width: 9px;
+    padding: 2px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(75, 0, 224);
+    border-radius: 5px;
+}
+
+@keyframes scroll{
+    0%{
+        transform: translateX(0%);
+    }100%{
+        transform: translateX(-100%);
+    }
+}
+.animate-slide{
+    animation: scroll 5s linear infinite;
+}
+.marquee:hover .animate-slide{
+    animation-play-state: paused;
+}
+input[type="color"]::moz-color-swatch{
+    border: none;
+}
