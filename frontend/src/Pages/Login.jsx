@@ -20,7 +20,7 @@ const Login = () => {
       return 
     }
 
-   try{ const response=await axios.post('http://localhost:8000/login',formData)
+   try{ const response=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`,formData)
     if(response){
       localStorage.setItem('token',response.data.token)
       localStorage.setItem('user',JSON.stringify(response.data.user))

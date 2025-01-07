@@ -52,7 +52,7 @@ const Gallery = () => {
    const formData=new FormData();
    formData.append('photos',file)
         try {
-            const uploadImg=await axios.post('http://localhost:8000/upload',formData,{headers:{'Authorization':`Bearer ${localStorage.getItem('token')}`,'Content-Type':'multipart/form-data'}})
+            const uploadImg=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/upload`,formData,{headers:{'Authorization':`Bearer ${localStorage.getItem('token')}`,'Content-Type':'multipart/form-data'}})
           if(uploadImg.status===200){
                 setImageUrl(uploadImg.data.imageUrl)
                 console.log(imageUrl);
@@ -74,7 +74,7 @@ const Gallery = () => {
 
     }
     const fetchImg=async()=>{
-        const response=await axios.get('http://localhost:8000/upload',{headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
+        const response=await axios.get(`${import.meta.env.VITE_BACKEND_URL}/upload`,{headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
         console.log(response.data);
         setImages(response.data?.images)
         console.log(images);
@@ -101,7 +101,7 @@ useEffect(()=>{
         };
     }, []);
     const deleteImg= async (id) => {
-   try{     await axios.delete('http://localhost:8000/upload',{data:{id:id},headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}});
+   try{     await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/upload`,{data:{id:id},headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}});
         await fetchImg()}catch(err){console.error(err);
         }
     }

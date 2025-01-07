@@ -18,7 +18,7 @@ const SignUp = () => {
           return 
         }
     
-       try{ const response=await axios.post('http://localhost:8000/signup',formData)
+       try{ const response=await axios.post(`${import.meta.env.VITE_BACKEND_URL}/signup`,formData)
         if(response.status===201){
           alert('Success')
          navigate('/auth/login')
