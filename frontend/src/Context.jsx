@@ -49,7 +49,7 @@ useEffect(()=>{
   }else{
     setUser(null)
     setToken(null)
-    navigate('/auth'); // Redirect to the auth page if no token or user
+    // navigate('/auth'); // Redirect to the auth page if no token or user
 
   }
   setLoading(false)
