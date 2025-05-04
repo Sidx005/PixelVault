@@ -185,7 +185,7 @@ useEffect(()=>{
                                 src={img.imageUrl}
                                 alt=""
                             />
-                            <p><b>Uploaded at: </b>{new Date(img?.uploadedAt).toLocaleDateString()}</p>
+                            <p><b>Uploaded at: </b>{new Date(img?.uploadedAt).toISOString().slice(0, 10)}</p>
                             <p><FaLink/> <Link to={`${img?.imageUrl}`} className='text-blue-400  underline'>{img?.imageUrl}</Link ></p>
                          <button onClick={()=>deleteImg(img?._id)}><FaTrash className='text-red-500'/></button>
                        </div>
